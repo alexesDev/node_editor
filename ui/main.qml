@@ -1,18 +1,20 @@
-import QtQuick 2.0
+import QtQuick 2.2
 
 Rectangle {
-  color: 'black'
+  color: '#393939'
+  focus: true
 
   Repeater {
     anchors.fill: parent
-    model: nodes
+    model: workspace.nodes
 
-    delegate: Rectangle {
-      x: model.left
-      y: model.top
-      width: 100
-      height: 100
-      color: 'red'
-    }
+    delegate: Node { }
+  }
+
+  Keys.onPressed: {
+    if(event.matches(StandardKey.Undo))
+      workspace.undoStack.undo();
+    else if(event.matches(StandardKey.Redo))
+      workspace.undoStack.redo();
   }
 }

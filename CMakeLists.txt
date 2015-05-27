@@ -20,9 +20,13 @@ set(SOURCES
   src/main.cpp
   src/Workspace.cpp
   src/WorkspaceGraph.cpp
-  src/NodeModel.cpp
+  src/Node.cpp
+  src/MoveCommand.cpp
+  #src/NodeModel.cpp
 
-  include/NodeModel.h
+  #include/NodeModel.h
+  include/Node.h
+  include/Workspace.h
 )
 
 add_executable(${PROJECT_NAME} WIN32 ${SOURCES})
