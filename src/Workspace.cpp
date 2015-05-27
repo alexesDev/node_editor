@@ -19,13 +19,24 @@ Workspace::Workspace() : d(new Private)
 
     auto node2 = new Node();
     node2->setX(500);
-    node2->setY(150);
+    node2->setY(100);
+
+    auto node3 = new Node();
+    node3->setX(100);
+    node3->setY(250);
 
     mNodes.append(node1);
     mNodes.append(node2);
+    mNodes.append(node3);
 
-    auto connection1 = new Connection(node1, node2, this);
+    auto connection1 = new Connection(node1, 0, node2, 0, this);
     mConnections.append(connection1);
+
+    auto connection2 = new Connection(node1, 1, node2, 2, this);
+    mConnections.append(connection2);
+
+    auto connection3 = new Connection(node3, 0, node2, 1, this);
+    mConnections.append(connection3);
 }
 
 Workspace::~Workspace()

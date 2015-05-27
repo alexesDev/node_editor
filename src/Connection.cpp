@@ -1,10 +1,12 @@
 #include <Connection.h>
 #include <Node.h>
 
-Connection::Connection(Node *source, Node *sink, QObject *parent) :
+Connection::Connection(Node *source, int sourceIndex, Node *sink, int sinkIndex, QObject *parent) :
     QObject(parent),
     mSource(source),
-    mSink(sink)
+    mSink(sink),
+    mSourceIndex(sourceIndex),
+    mSinkIndex(sinkIndex)
 {
     connect(mSource, &Node::xChanged, this, &Connection::sourceChanged);
     connect(mSource, &Node::yChanged, this, &Connection::sourceChanged);
@@ -21,4 +23,14 @@ Node *Connection::source() const
 Node *Connection::sink() const
 {
     return mSink;
+}
+
+int Connection::sourceIndex() const
+{
+    return mSourceIndex;
+}
+
+int Connection::sinkIndex() const
+{
+    return mSinkIndex;
 }

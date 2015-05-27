@@ -19,6 +19,23 @@ Item {
     radius: 3
   }
 
+  Rectangle {
+    id: header
+    color: '#2A2A2A'
+    width: root.width
+    height: 20
+    radius: 3
+
+    Text {
+      anchors.fill: parent
+      text: "Node"
+      color: '#ccc'
+      font.pointSize: 9
+      verticalAlignment: Text.AlignVCenter
+      horizontalAlignment: Text.AlignHCenter
+    }
+  }
+
   MouseArea {
     id: dragArea
     anchors.fill: parent
