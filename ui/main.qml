@@ -28,9 +28,17 @@ Rectangle {
         var nodeWidth = 100;
         var pinPadding = 10;
 
+        var x1 = source.x + nodeWidth + 5;
+        var y1 = source.y + pinPadding;
+
+        var x2 = sink.x - 5;
+        var y2 = sink.y + pinPadding;
+
+        var linePadding = 20;
+
         ctx.beginPath();
-        ctx.moveTo(source.x + nodeWidth + 5, source.y + pinPadding);
-        ctx.lineTo(sink.x - 5, sink.y + pinPadding);
+        ctx.moveTo(x1, y1);
+        ctx.bezierCurveTo(x1 + linePadding, y1, x2 - linePadding, y2, x2, y2);
         ctx.stroke();
       }
     }
