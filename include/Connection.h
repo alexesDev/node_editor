@@ -6,36 +6,26 @@
 
 NODE_EDITOR_BEGIN_NAMESPACE
 
-class Node;
+class Pin;
 
 class Connection : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(Node *source READ source NOTIFY sourceChanged)
-    Q_PROPERTY(Node *sink READ sink NOTIFY sinkChanged)
-    Q_PROPERTY(int sourceIndex READ sourceIndex NOTIFY sourceIndexChanged)
-    Q_PROPERTY(int sinkIndex READ sinkIndex NOTIFY sinkIndexChanged)
+    Q_PROPERTY(Pin *source READ source NOTIFY sourceChanged)
+    Q_PROPERTY(Pin *sink READ sink NOTIFY sinkChanged)
 
-    Node *mSource;
-    Node *mSink;
-
-    int mSourceIndex;
-    int mSinkIndex;
+    Pin *mSource;
+    Pin *mSink;
 
     public:
-        Connection(Node *source = nullptr, int sourceIndex = 0, Node *sink = nullptr, int sinkIndex = 0, QObject *parent = 0);
+        Connection(Pin *source = nullptr, Pin *sink = nullptr, QObject *parent = 0);
 
-        Node *source() const;
-        Node *sink() const;
-
-        int sourceIndex() const;
-        int sinkIndex() const;
+        Pin *source() const;
+        Pin *sink() const;
 
     signals:
         void sourceChanged();
         void sinkChanged();
-        void sourceIndexChanged();
-        void sinkIndexChanged();
 };
 
 NODE_EDITOR_END_NAMESPACE

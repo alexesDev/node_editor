@@ -1,36 +1,29 @@
 #include <Connection.h>
+#include <Pin.h>
 #include <Node.h>
 
-Connection::Connection(Node *source, int sourceIndex, Node *sink, int sinkIndex, QObject *parent) :
+NODE_EDITOR_BEGIN_NAMESPACE
+
+Connection::Connection(Pin *source, Pin *sink, QObject *parent) :
     QObject(parent),
     mSource(source),
-    mSink(sink),
-    mSourceIndex(sourceIndex),
-    mSinkIndex(sinkIndex)
+    mSink(sink)
 {
-    connect(mSource, &Node::xChanged, this, &Connection::sourceChanged);
-    connect(mSource, &Node::yChanged, this, &Connection::sourceChanged);
+    connect(mSource->node(), &Node::xChanged, this, &Connection::sourceChanged);
+    connect(mSource->node(), &Node::yChanged, this, &Connection::sourceChanged);
 
-    connect(mSink, &Node::xChanged, this, &Connection::sinkChanged);
-    connect(mSink, &Node::yChanged, this, &Connection::sinkChanged);
+    connect(mSink->node(), &Node::xChanged, this, &Connection::sinkChanged);
+    connect(mSink->node(), &Node::yChanged, this, &Connection::sinkChanged);
 }
 
-Node *Connection::source() const
+Pin *Connection::source() const
 {
     return mSource;
 }
 
-Node *Connection::sink() const
+Pin *Connection::sink() const
 {
     return mSink;
 }
 
-int Connection::sourceIndex() const
-{
-    return mSourceIndex;
-}
-
-int Connection::sinkIndex() const
-{
-    return mSinkIndex;
-}
+NODE_EDITOR_BEGIN_NAMESPACE

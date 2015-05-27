@@ -3,8 +3,11 @@
 
 #include <namespace.h>
 #include <QObject>
+#include <QMap>
 
 NODE_EDITOR_BEGIN_NAMESPACE
+
+class Pin;
 
 class Node : public QObject
 {
@@ -16,6 +19,9 @@ class Node : public QObject
     int mX;
     int mY;
 
+    QMap<int, Pin*> mInputPins;
+    QMap<int, Pin*> mOutputPins;
+
     public:
         Node(QObject *parent = nullptr);
 
@@ -24,6 +30,9 @@ class Node : public QObject
 
         void setX(int value);
         void setY(int value);
+
+        Pin* inputPin(int index);
+        Pin* outputPin(int index);
 
     signals:
         void xChanged();

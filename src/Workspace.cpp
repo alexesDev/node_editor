@@ -29,13 +29,13 @@ Workspace::Workspace() : d(new Private)
     mNodes.append(node2);
     mNodes.append(node3);
 
-    auto connection1 = new Connection(node1, 0, node2, 0, this);
+    auto connection1 = new Connection(node1->outputPin(0), node2->inputPin(0), this);
     mConnections.append(connection1);
 
-    auto connection2 = new Connection(node1, 1, node2, 2, this);
+    auto connection2 = new Connection(node1->outputPin(1), node2->inputPin(2), this);
     mConnections.append(connection2);
 
-    auto connection3 = new Connection(node3, 0, node2, 1, this);
+    auto connection3 = new Connection(node3->outputPin(0), node2->inputPin(1), this);
     mConnections.append(connection3);
 }
 

@@ -23,11 +23,11 @@ Canvas {
       var pinPadding = 25;
       var headerHeight = 30;
 
-      var x1 = connection.source.x + nodeWidth;
-      var y1 = connection.source.y + pinPadding * connection.sourceIndex + headerHeight;
+      var x1 = connection.source.node.x + nodeWidth;
+      var y1 = connection.source.node.y + pinPadding * connection.source.index + headerHeight;
 
-      var x2 = connection.sink.x;
-      var y2 = connection.sink.y + pinPadding * connection.sinkIndex + headerHeight;
+      var x2 = connection.sink.node.x;
+      var y2 = connection.sink.node.y + pinPadding * connection.sink.index + headerHeight;
 
       var linePadding = 100;
 

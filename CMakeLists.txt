@@ -23,10 +23,12 @@ set(SOURCES
   src/Node.cpp
   src/MoveCommand.cpp
   src/Connection.cpp
+  src/Pin.cpp
 
   include/Node.h
   include/Workspace.h
   include/Connection.h
+  include/Pin.h
 )
 
 add_executable(${PROJECT_NAME} WIN32 ${SOURCES})
