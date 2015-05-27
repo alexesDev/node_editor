@@ -28,13 +28,13 @@ Rectangle {
         var nodeWidth = 100;
         var pinPadding = 10;
 
-        var x1 = source.x + nodeWidth + 5;
+        var x1 = source.x + nodeWidth;
         var y1 = source.y + pinPadding;
 
-        var x2 = sink.x - 5;
+        var x2 = sink.x;
         var y2 = sink.y + pinPadding;
 
-        var linePadding = 20;
+        var linePadding = 100;
 
         ctx.beginPath();
         ctx.moveTo(x1, y1);
