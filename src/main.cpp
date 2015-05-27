@@ -5,6 +5,7 @@
 #include <QQuickView>
 #include <QQmlContext>
 #include <QUndoStack>
+#include <Connection.h>
 
 int main(int argc, char **argv)
 {
@@ -17,6 +18,7 @@ int main(int argc, char **argv)
 
     qmlRegisterType<Node>("Editor", 1, 0, "Node");
     qmlRegisterType<QUndoStack>("Editor", 1, 0, "UndoStack");
+    qmlRegisterType<Connection>("Editor", 1, 0, "Connection");
 
     QQuickView view;
     view.setResizeMode(QQuickView::SizeRootObjectToView);

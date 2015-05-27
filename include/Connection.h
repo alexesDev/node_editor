@@ -18,7 +18,7 @@ class Connection : public QObject
     Node *mSink;
 
     public:
-        Connection(Node *source, Node *sink, QObject *parent = 0);
+        Connection(Node *source = nullptr, Node *sink = nullptr, QObject *parent = 0);
 
         Node *source() const;
         Node *sink() const;

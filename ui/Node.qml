@@ -24,6 +24,20 @@ Item {
     anchors.fill: parent
     drag.target: parent
     drag.threshold: 0
-    onReleased: workspace.moveNode(index, Qt.point(root.x, root.y));
+
+    property point startPosition;
+
+    onPressed: startPosition = Qt.point(root.x, root.y);
+    onPositionChanged: { model.x = root.x; model.y = root.y }
+
+    onReleased: {
+      // todo: remove this hack for the one-step undo history
+      var newPosition = Qt.point(root.x, root.y);
+
+      model.x = startPosition.x
+      model.y = startPosition.y
+
+      workspace.moveNode(index, newPosition);
+    }
   }
 }
