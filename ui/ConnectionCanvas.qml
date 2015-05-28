@@ -29,7 +29,7 @@ Canvas {
       var x2 = connection.sink.node.x;
       var y2 = connection.sink.node.y + pinPadding * connection.sink.index + headerHeight;
 
-      var linePadding = 100;
+      var linePadding = Math.abs(x1 - x2) * 0.5;
 
       ctx.beginPath();
       ctx.moveTo(x1, y1);
