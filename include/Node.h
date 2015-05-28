@@ -3,7 +3,7 @@
 
 #include <namespace.h>
 #include <QObject>
-#include <QMap>
+#include <QQmlListProperty>
 
 NODE_EDITOR_BEGIN_NAMESPACE
 
@@ -15,6 +15,8 @@ class Node : public QObject
 
     Q_PROPERTY(int x READ x WRITE setX NOTIFY xChanged)
     Q_PROPERTY(int y READ y WRITE setY NOTIFY yChanged)
+    Q_PROPERTY(QQmlListProperty<Pin> inputPins READ qmlInputPins NOTIFY inputPinsChanged)
+    Q_PROPERTY(QQmlListProperty<Pin> outputPins READ qmlOutputPins NOTIFY outputPinsChanged)
 
     int mX;
     int mY;
@@ -34,9 +36,14 @@ class Node : public QObject
         Pin* inputPin(int index);
         Pin* outputPin(int index);
 
+        QQmlListProperty<Pin> qmlInputPins();
+        QQmlListProperty<Pin> qmlOutputPins();
+
     signals:
         void xChanged();
         void yChanged();
+        void inputPinsChanged();
+        void outputPinsChanged();
 };
 
 NODE_EDITOR_END_NAMESPACE

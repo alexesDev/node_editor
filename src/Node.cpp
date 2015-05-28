@@ -37,6 +37,7 @@ Pin *Node::inputPin(int index)
 
     auto pin = new Pin(this, index, this);
     mInputPins.insert(index, pin);
+    emit inputPinsChanged();
     return pin;
 }
 
@@ -48,7 +49,18 @@ Pin *Node::outputPin(int index)
 
     auto pin = new Pin(this, index, this);
     mOutputPins.insert(index, pin);
+    emit outputPinsChanged();
     return pin;
+}
+
+QQmlListProperty<Pin> Node::qmlInputPins()
+{
+    return QQmlListProperty<Pin>(this, mInputPins);
+}
+
+QQmlListProperty<Pin> Node::qmlOutputPins()
+{
+    return QQmlListProperty<Pin>(this, mOutputPins);
 }
 
 NODE_EDITOR_END_NAMESPACE

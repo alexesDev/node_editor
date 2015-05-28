@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import QtGraphicalEffects 1.0
 
 Item {
@@ -8,6 +8,8 @@ Item {
 
   x: model.x
   y: model.y
+
+  property var rootModel : model;
 
   Drag.active: dragArea.drag.active
   Drag.onDragFinished: console.log('onDragFinished')
@@ -33,6 +35,26 @@ Item {
       font.pointSize: 9
       verticalAlignment: Text.AlignVCenter
       horizontalAlignment: Text.AlignHCenter
+    }
+  }
+
+  Item {
+    x: 0
+    y: 25
+
+    Repeater {
+      model: rootModel.inputPins
+      delegate: InputPin { }
+    }
+  }
+
+  Item {
+    x: root.width
+    y: 25
+
+    Repeater {
+      model: rootModel.outputPins
+      delegate: OutputPin { }
     }
   }
 
