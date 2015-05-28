@@ -66,12 +66,7 @@ void Workspace::moveNode(int index, const QPointF &position)
 
 void Workspace::createConnection(Pin *from, Pin *to)
 {
-    auto callback = [&](){
-        emit connectionsChanged();
-    };
-
-    d->undoStack.push(new ConnectCommand(mConnections, callback, from, to));
-    emit connectionsChanged();
+    d->undoStack.push(new ConnectCommand(mConnections, std::bind(&Workspace::connectionsChanged, this), from, to));
 }
 
 QQmlListProperty<Node> Workspace::nodesAsObjects()

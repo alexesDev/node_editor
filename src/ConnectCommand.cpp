@@ -9,6 +9,7 @@ ConnectCommand::ConnectCommand(QList<Connection*> &connections, std::function<vo
     QUndoCommand(parent),
     mConnections(connections),
     mChangeCallback(changeCallback),
+    mConnection(nullptr),
     mFrom(from),
     mTo(to)
 {
@@ -16,11 +17,16 @@ ConnectCommand::ConnectCommand(QList<Connection*> &connections, std::function<vo
 
 void ConnectCommand::undo()
 {
+    mConnections.removeOne(mConnection);
+    delete mConnection;
+    mConnection = nullptr;
+    mChangeCallback();
 }
 
 void ConnectCommand::redo()
 {
-    mConnections.append(new Connection(mFrom, mTo)); // need set parent
+    mConnection = new Connection(mFrom, mTo);
+    mConnections.append(mConnection); // need set parent
     mChangeCallback();
 }
 

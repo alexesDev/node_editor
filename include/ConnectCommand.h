@@ -21,6 +21,7 @@ class ConnectCommand : public QUndoCommand
     private:
         QList<Connection*> &mConnections;
         std::function<void()> mChangeCallback;
+        Connection *mConnection;
         Pin *mFrom;
         Pin *mTo;
 };
