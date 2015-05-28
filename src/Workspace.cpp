@@ -20,6 +20,8 @@ Workspace::Workspace() : d(new Private)
     auto node2 = new Node();
     node2->setX(500);
     node2->setY(100);
+    node2->outputPin(0);
+    node2->outputPin(1);
 
     auto node3 = new Node();
     node3->setX(100);
