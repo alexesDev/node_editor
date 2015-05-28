@@ -31,26 +31,24 @@ void Node::setY(int value)
 
 Pin *Node::inputPin(int index)
 {
-    if(mInputPins.contains(index))
-        return mInputPins[index];
-    else
-    {
-        auto pin = new Pin(this, index, this);
-        mInputPins.insert(index, pin);
-        return pin;
-    }
+    for(auto pin : mInputPins)
+        if(pin->index() == index)
+            return pin;
+
+    auto pin = new Pin(this, index, this);
+    mInputPins.insert(index, pin);
+    return pin;
 }
 
 Pin *Node::outputPin(int index)
 {
-    if(mOutputPins.contains(index))
-        return mInputPins[index];
-    else
-    {
-        auto pin = new Pin(this, index, this);
-        mOutputPins.insert(index, pin);
-        return pin;
-    }
+    for(auto pin : mOutputPins)
+        if(pin->index() == index)
+            return pin;
+
+    auto pin = new Pin(this, index, this);
+    mOutputPins.insert(index, pin);
+    return pin;
 }
 
 NODE_EDITOR_END_NAMESPACE

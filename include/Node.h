@@ -19,8 +19,8 @@ class Node : public QObject
     int mX;
     int mY;
 
-    QMap<int, Pin*> mInputPins;
-    QMap<int, Pin*> mOutputPins;
+    QList<Pin*> mInputPins;
+    QList<Pin*> mOutputPins;
 
     public:
         Node(QObject *parent = nullptr);
