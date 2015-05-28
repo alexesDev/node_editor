@@ -4,6 +4,8 @@
 #include <Node.h>
 #include <QPointF>
 #include <MoveCommand.h>
+#include <ConnectCommand.h>
+#include <QDebug>
 
 NODE_EDITOR_BEGIN_NAMESPACE
 
@@ -27,9 +29,16 @@ Workspace::Workspace() : d(new Private)
     node3->setX(100);
     node3->setY(250);
 
+    auto node4 = new Node();
+    node4->setX(500);
+    node4->setY(350);
+    node4->inputPin(0);
+    node4->inputPin(1);
+
     mNodes.append(node1);
     mNodes.append(node2);
     mNodes.append(node3);
+    mNodes.append(node4);
 
     auto connection1 = new Connection(node1->outputPin(0), node2->inputPin(0), this);
     mConnections.append(connection1);
@@ -53,6 +62,16 @@ QUndoStack *Workspace::undoStack() const
 void Workspace::moveNode(int index, const QPointF &position)
 {
     d->undoStack.push(new MoveCommand(mNodes[index], position.x(), position.y()));
+}
+
+void Workspace::createConnection(Pin *from, Pin *to)
+{
+    auto callback = [&](){
+        emit connectionsChanged();
+    };
+
+    d->undoStack.push(new ConnectCommand(mConnections, callback, from, to));
+    emit connectionsChanged();
 }
 
 QQmlListProperty<Node> Workspace::nodesAsObjects()

@@ -5,12 +5,21 @@ Canvas {
 
   property var model;
 
-  Component.onCompleted: {
+  function connectToNodePositions(){
     for(var i = 0; i < model.length; i += 1){
       var connection = model[i];
       connection.sourceChanged.connect(requestPaint);
       connection.sinkChanged.connect(requestPaint);
     }
+  }
+
+  Component.onCompleted: {
+    workspace.connectionsChanged.connect(function(){
+      connectToNodePositions(); // todo: remove double connections
+      requestPaint();
+    });
+
+    connectToNodePositions();
   }
 
   onPaint: {

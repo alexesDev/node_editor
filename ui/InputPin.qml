@@ -7,5 +7,7 @@ Item {
   x: -width / 2
   y: model.index * 25
 
-  Pin { }
+  property var rootModel : model
+
+  Pin { model: rootModel }
 }

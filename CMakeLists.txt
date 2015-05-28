@@ -22,6 +22,7 @@ set(SOURCES
   src/WorkspaceGraph.cpp
   src/Node.cpp
   src/MoveCommand.cpp
+  src/ConnectCommand.cpp
   src/Connection.cpp
   src/Pin.cpp
 
