@@ -23,6 +23,12 @@ make -j5
 ./node_editor
 ```
 
+## Minimal dependencies
+
+- CMake >= 3.1.3
+- Qt >= 5.4.1
+- ZeroMQ >= 4.0.5
+
 # Screenshots
 
 ![](https://github.com/alexesDev/node_editor/blob/master/preview.png)
