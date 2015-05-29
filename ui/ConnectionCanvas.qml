@@ -33,10 +33,13 @@ Canvas {
       var headerHeight = 30;
 
       var x1 = connection.source.node.x + nodeWidth;
-      var y1 = connection.source.node.y + pinPadding * connection.source.index + headerHeight;
+      var y1 = connection.source.node.y + headerHeight +
+        pinPadding * connection.source.index + 7; // todo: remove a magic number 5
 
       var x2 = connection.sink.node.x;
-      var y2 = connection.sink.node.y + pinPadding * connection.sink.index + headerHeight;
+      var y2 = connection.sink.node.y + headerHeight +
+        connection.sink.node.outputPins.length * pinPadding +
+        connection.sink.index * pinPadding + 10; // todo: remove a magic number 10
 
       var linePadding = Math.abs(x1 - x2) * 0.5;
 
