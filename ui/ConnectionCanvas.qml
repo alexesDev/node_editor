@@ -39,7 +39,7 @@ Canvas {
       var x2 = connection.sink.node.x;
       var y2 = connection.sink.node.y + headerHeight +
         connection.sink.node.outputPins.length * pinPadding +
-        connection.sink.index * pinPadding + 7; // todo: remove a magic number 7
+        connection.sink.index * pinPadding + 5; // todo: remove a magic number 5
 
       var linePadding = Math.abs(x1 - x2) * 0.5;
 
