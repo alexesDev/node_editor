@@ -28,7 +28,7 @@ Canvas {
 
     for(var i = 0; i < model.length; i += 1){
       var connection = model[i];
-      var nodeWidth = 100;
+      var nodeWidth = 150;
       var pinPadding = 25;
       var headerHeight = 30;
 
