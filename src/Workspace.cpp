@@ -61,11 +61,13 @@ QUndoStack *Workspace::undoStack() const
 
 void Workspace::moveNode(int index, const QPointF &position)
 {
+    qDebug() << "Move node" << index;
     d->undoStack.push(new MoveCommand(mNodes[index], position.x(), position.y()));
 }
 
 void Workspace::createConnection(Pin *from, Pin *to)
 {
+    qDebug() << "Create connection";
     d->undoStack.push(new ConnectCommand(mConnections, std::bind(&Workspace::connectionsChanged, this), from, to));
 }
 

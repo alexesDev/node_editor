@@ -15,6 +15,7 @@ Rectangle {
     spacing: padding
 
     Component.onCompleted: messageList.positionViewAtEnd()
+    onCountChanged: messageList.positionViewAtEnd()
 
     delegate: Text {
       color: '#ccc'

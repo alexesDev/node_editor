@@ -7,9 +7,11 @@ Rectangle {
   height: 20
   radius: 3
 
+  property string text: "Node"
+
   Text {
     anchors.fill: parent
-    text: "Node"
+    text: header.text
     color: '#ccc'
     font.pointSize: 8
     verticalAlignment: Text.AlignVCenter

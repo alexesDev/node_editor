@@ -25,7 +25,9 @@ Item {
     radius: 3
   }
 
-  NodeHeader {}
+  NodeHeader {
+    text: "Node #" + index
+  }
 
   ColumnLayout {
     x: 0

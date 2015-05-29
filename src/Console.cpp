@@ -5,7 +5,7 @@ NODE_EDITOR_BEGIN_NAMESPACE
 Console::Console(QObject *parent) :
     QObject(parent)
 {
-    mLines << "Launch" << "Load nodes" << "Detect circle" << "Create new node" << "Processing... 50%";
+    mLines << "Default undo/redo shortcuts works.";
 }
 
 void Console::addMessage(const QString &value)
