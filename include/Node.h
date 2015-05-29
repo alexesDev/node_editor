@@ -33,8 +33,11 @@ class Node : public QObject
         void setX(int value);
         void setY(int value);
 
-        Pin* inputPin(int index);
-        Pin* outputPin(int index);
+        Pin* inputPin(int index); // todo: rename to sourcePin
+        Pin* outputPin(int index); // todo: rename to sinkPin
+
+        Q_INVOKABLE bool isInputPin(Pin* pin) const;
+        Q_INVOKABLE bool isOutputPin(Pin* pin) const;
 
         QQmlListProperty<Pin> qmlInputPins();
         QQmlListProperty<Pin> qmlOutputPins();

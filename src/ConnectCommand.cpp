@@ -1,7 +1,6 @@
 #include <ConnectCommand.h>
 #include <Pin.h>
 #include <Connection.h>
-#include <QDebug>
 
 NODE_EDITOR_BEGIN_NAMESPACE
 

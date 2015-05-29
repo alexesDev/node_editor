@@ -14,6 +14,9 @@ Connection::Connection(Pin *source, Pin *sink, QObject *parent) :
 
     connect(mSink->node(), &Node::xChanged, this, &Connection::sinkChanged);
     connect(mSink->node(), &Node::yChanged, this, &Connection::sinkChanged);
+
+    if(mSource->node()->isInputPin(mSource))
+        std::swap(mSource, mSink);
 }
 
 Pin *Connection::source() const

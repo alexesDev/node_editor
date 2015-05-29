@@ -53,6 +53,16 @@ Pin *Node::outputPin(int index)
     return pin;
 }
 
+bool Node::isInputPin(Pin* pin) const
+{
+    return mInputPins.contains(pin);
+}
+
+bool Node::isOutputPin(Pin* pin) const
+{
+    return mOutputPins.contains(pin);
+}
+
 QQmlListProperty<Pin> Node::qmlInputPins()
 {
     return QQmlListProperty<Pin>(this, mInputPins);
