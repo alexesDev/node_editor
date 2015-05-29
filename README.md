@@ -28,6 +28,7 @@ make -j5
 - CMake >= 3.1.3
 - Qt >= 5.4.1
 - ZeroMQ >= 4.0.5
+- boost >= 1.57
 
 # Screenshots
 
