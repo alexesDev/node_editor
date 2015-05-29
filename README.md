@@ -9,9 +9,10 @@ Game engine <- Noise generator service <- Editor <-> Save service
 
 1. Launched editor
 2. Launched "Save service" that loaded a scheme to editor
-3. Edit loaded nodes in the editor
-4. Noise generator generated a texture
-5. Game engine shown the image
+3. Launched Noise generator and Game engine
+4. Edit loaded nodes in the editor
+5. Noise generator generated a texture
+6. Game engine shown the image
 
 # Compilation
 
