@@ -13,8 +13,10 @@ set(CMAKE_BUILD_TYPE Debug)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Quick REQUIRED)
 find_package(Boost REQUIRED)
+find_package(ZMQ REQUIRED)
 
 include_directories(${Boost_INCLUDE_DIRS})
+include_directories(${ZMQ_INCLUDE_DIRS})
 include_directories(include)
 include_directories(src)
 
@@ -37,4 +39,4 @@ set(SOURCES
 )
 
 add_executable(${PROJECT_NAME} WIN32 ${SOURCES})
-target_link_libraries(${PROJECT_NAME} Qt5::Widgets Qt5::Quick ${Boost_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} Qt5::Widgets Qt5::Quick ${Boost_LIBRARIES} ${ZMQ_LIBRARIES})
