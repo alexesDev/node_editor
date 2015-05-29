@@ -79,4 +79,9 @@ QQmlListProperty<Connection> Workspace::qmlConnections()
     return QQmlListProperty<Connection>(this, mConnections);
 }
 
+Console *Workspace::console() const
+{
+    return &d->console;
+}
+
 NODE_EDITOR_END_NAMESPACE

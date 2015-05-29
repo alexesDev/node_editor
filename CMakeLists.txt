@@ -30,12 +30,14 @@ set(SOURCES
   src/Connection.cpp
   src/Pin.cpp
   src/LiveReload.cpp
+  src/Console.cpp
 
   include/Node.h
   include/Workspace.h
   include/Connection.h
   include/Pin.h
   include/LiveReload.h
+  include/Console.h
 )
 
 add_executable(${PROJECT_NAME} WIN32 ${SOURCES})

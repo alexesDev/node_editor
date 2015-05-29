@@ -14,6 +14,7 @@ NODE_EDITOR_BEGIN_NAMESPACE
 class Node;
 class Connection;
 class Pin;
+class Console;
 
 struct Workspace : public QObject
 {
@@ -29,12 +30,14 @@ struct Workspace : public QObject
 
     QQmlListProperty<Node> nodesAsObjects();
     QQmlListProperty<Connection> qmlConnections();
+    Console *console() const;
 
     PIMPL_PRIVATE_DATA
     Q_OBJECT
     Q_PROPERTY(QQmlListProperty<Node> nodes READ nodesAsObjects NOTIFY nodesChanged)
     Q_PROPERTY(QQmlListProperty<Connection> connections READ qmlConnections NOTIFY connectionsChanged)
     Q_PROPERTY(QUndoStack *undoStack READ undoStack NOTIFY undoStackChanged)
+    Q_PROPERTY(Console *console READ console NOTIFY consoleChanged)
 
     QList<Node*> mNodes; // todo: move to private class
     QList<Connection*> mConnections;
@@ -47,6 +50,7 @@ struct Workspace : public QObject
         void nodesChanged();
         void undoStackChanged();
         void connectionsChanged();
+        void consoleChanged();
 };
 
 NODE_EDITOR_END_NAMESPACE

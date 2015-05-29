@@ -11,7 +11,7 @@ Rectangle {
     y: padding
     width: parent.width - padding * 2
     height: parent.height - padding * 2
-    model: ["Launch", "Load nodes", "Detect circle", "Create new node", "Processing... 50%"]
+    model: workspace.console.lines
     spacing: padding
 
     Component.onCompleted: messageList.positionViewAtEnd()
