@@ -8,8 +8,7 @@ Item {
     model: rootModel
     width: pinSize
     height: pinSize
-    x: -5
-    y: 5
+    x: -pinSize / 2
   }
 
   Rectangle {

@@ -19,7 +19,6 @@ Item {
     model: rootModel
     width: pinSize
     height: pinSize
-    x: root.width
-    y: 7
+    x: root.width - pinSize / 2
   }
 }

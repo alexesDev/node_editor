@@ -38,9 +38,8 @@ Item {
       model: rootModel.outputPins
       delegate: OutputPin {
         width: root.width
-        x: -5
         height: 25
-        pinSize: 10
+        pinSize: 20
       }
     }
 
@@ -51,7 +50,7 @@ Item {
       delegate: InputPin {
         width: root.width
         height: 25
-        pinSize: 10
+        pinSize: 20
       }
     }
   }
@@ -61,6 +60,7 @@ Item {
     anchors.fill: parent
     drag.target: parent
     drag.threshold: 0
+    drag.filterChildren: true
 
     property point startPosition;
 
