@@ -23,7 +23,11 @@ Rectangle {
       id: tile
       width: root.width
       height: root.height
-      color: '#f00'
+      color: '#666'
+      radius: parent.width
+      border.color: '#000'
+      border.width: 1
+      visible: false
 
       Drag.keys: ["pin"]
       Drag.active: mouseArea.drag.active
@@ -31,10 +35,15 @@ Rectangle {
 
     property point startPosition;
 
-    onPressed: startPosition = Qt.point(tile.x, tile.y)
+    onPressed: {
+      startPosition = Qt.point(tile.x, tile.y)
+      tile.visible = true
+    }
+
     onReleased: {
       tile.x = startPosition.x
       tile.y = startPosition.y
+      tile.visible = false
 
       if(tile.Drag.target !== null)
         workspace.createConnection(model.modelData, tile.Drag.target.pinModel.modelData);
@@ -47,22 +56,15 @@ Rectangle {
     keys: ["pin"]
 
     property var pinModel : root.model
-
-    Rectangle {
-      id: dropRectangle
-      anchors.fill: parent
-      color: '#0f0'
-      visible: false
-
-      states: [
-        State {
-          when: dragTarget.containsDrag
-          PropertyChanges {
-            target: dropRectangle
-            visible: true
-          }
-        }
-      ]
-    }
   }
+
+  states: [
+    State {
+      when: dragTarget.containsDrag
+      PropertyChanges {
+        target: root
+        color: '#0f0'
+      }
+    }
+  ]
 }
