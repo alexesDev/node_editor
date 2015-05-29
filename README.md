@@ -33,3 +33,7 @@ make -j5
 # Screenshots
 
 ![](https://github.com/alexesDev/node_editor/blob/master/preview.png)
+
+# License
+
+Project is licensed under MIT/Expat license, see [COPYING](COPYING) file for details.
