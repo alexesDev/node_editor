@@ -12,6 +12,7 @@ Item {
     text: 'Output label'
     horizontalAlignment: Text.AlignRight
     verticalAlignment: Text.AlignVCenter
+    font.pointSize: 8
   }
 
   Pin {

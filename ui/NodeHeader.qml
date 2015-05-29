@@ -11,7 +11,7 @@ Rectangle {
     anchors.fill: parent
     text: "Node"
     color: '#ccc'
-    font.pointSize: 9
+    font.pointSize: 8
     verticalAlignment: Text.AlignVCenter
     horizontalAlignment: Text.AlignHCenter
   }

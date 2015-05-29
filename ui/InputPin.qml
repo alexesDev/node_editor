@@ -23,7 +23,7 @@ Item {
     Text {
       anchors.fill: parent
       text: 'Demo control'
-      font.pointSize: 9
+      font.pointSize: 8
       verticalAlignment: Text.AlignVCenter
       horizontalAlignment: Text.AlignHCenter
     }
