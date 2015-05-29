@@ -1,5 +1,5 @@
 #include <Workspace.h>
-#include <iostream>
+#include <functional>
 #include <LiveReload.h>
 #include <QQuickView>
 #include <QQmlContext>
@@ -8,11 +8,20 @@
 #include <Node.h>
 #include <Pin.h>
 #include <Console.h>
+#include <QtGlobal>
+
+static Workspace w;
+
+void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &message)
+{
+    w.console()->addMessage(message);
+}
 
 int main(int argc, char **argv)
 {
+    qInstallMessageHandler(messageHandler);
+
     LiveReload app(argc, argv);
-    Workspace w;
 
     qmlRegisterType<Node>("Editor", 1, 0, "Node");
     qmlRegisterType<QUndoStack>("Editor", 1, 0, "UndoStack");

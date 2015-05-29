@@ -15,7 +15,8 @@ class Console : public QObject
     public:
         Console(QObject *parent = nullptr);
 
-        QStringList lines();
+        QStringList &lines();
+        void addMessage(const QString &value);
 
     signals:
         void linesChanged();

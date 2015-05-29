@@ -8,7 +8,13 @@ Console::Console(QObject *parent) :
     mLines << "Launch" << "Load nodes" << "Detect circle" << "Create new node" << "Processing... 50%";
 }
 
-QStringList Console::lines()
+void Console::addMessage(const QString &value)
+{
+    mLines << value;
+    emit linesChanged();
+}
+
+QStringList &Console::lines()
 {
     return mLines;
 }
