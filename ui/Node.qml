@@ -30,7 +30,7 @@ Item {
   ColumnLayout {
     x: 0
     y: headerHeight
-    spacing: 5
+    spacing: 0
 
     ListView {
       width: parent.width
