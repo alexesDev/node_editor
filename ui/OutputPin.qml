@@ -1,13 +1,24 @@
 import QtQuick 2.2
 
 Item {
-  width: 10
-  height: 10
-
-  x: -width / 2
-  y: model.index * 25
+  id: root
 
   property var rootModel : model
+  property int pinSize
 
-  Pin { model: rootModel }
+  Text {
+    width: parent.width - 10
+    height: parent.height
+    text: 'Output label'
+    horizontalAlignment: Text.AlignRight
+    verticalAlignment: Text.AlignVCenter
+  }
+
+  Pin {
+    model: rootModel
+    width: pinSize
+    height: pinSize
+    x: root.width
+    y: 7
+  }
 }

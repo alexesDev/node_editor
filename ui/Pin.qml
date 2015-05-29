@@ -5,14 +5,10 @@ Rectangle {
 
   property var model
 
-  anchors.fill: parent
   color: '#666'
-  radius: parent.width
   border.color: '#000'
   border.width: 1
-
-  width: 10
-  height: 10
+  radius: width
 
   MouseArea {
     id: mouseArea
