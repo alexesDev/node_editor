@@ -4,16 +4,8 @@ Rectangle {
   color: '#393939'
   focus: true
 
-  ConnectionCanvas {
+  Workspace {
     anchors.fill: parent
-    model: workspace.connections
-  }
-
-  Repeater {
-    anchors.fill: parent
-    model: workspace.nodes
-
-    delegate: Node { }
   }
 
   Keys.onPressed: {
