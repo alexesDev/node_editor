@@ -39,6 +39,7 @@ set(SOURCES
   src/Pin.cpp
   src/LiveReload.cpp
   src/Console.cpp
+  src/Server.cpp
 
   include/Node.h
   include/Workspace.h
@@ -46,6 +47,7 @@ set(SOURCES
   include/Pin.h
   include/LiveReload.h
   include/Console.h
+  include/Server.h
 )
 
 protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${PROTO_SOURCES})

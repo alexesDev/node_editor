@@ -9,6 +9,8 @@
 #include <Pin.h>
 #include <Console.h>
 #include <QtGlobal>
+#include <QThread>
+#include <Server.h>
 
 static Workspace w;
 
@@ -32,6 +34,12 @@ int main(int argc, char **argv)
     app.view.rootContext()->setContextProperty("workspace", &w);
     app.view.setSource(QUrl("../ui/main.qml"));
     app.view.show();
+
+    Server server({ "tcp://127.0.0.1:4242", "tcp://127.0.0.1:4243" }, &w);
+    QThread serverThread;
+
+    server.connect(&serverThread, &QThread::started, &server, &Server::run);
+    serverThread.start();
 
     return app.exec();
 }
