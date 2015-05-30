@@ -14,11 +14,17 @@ find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Quick REQUIRED)
 find_package(Boost REQUIRED)
 find_package(ZMQ REQUIRED)
+find_package(Protobuf REQUIRED)
 
+include_directories(${PROTOBUF_INCLUDE_DIRS})
 include_directories(${Boost_INCLUDE_DIRS})
 include_directories(${ZMQ_INCLUDE_DIRS})
 include_directories(include)
 include_directories(src)
+
+set(PROTO_SOURCES
+  proto/Graph.proto
+)
 
 set(SOURCES
   src/main.cpp
@@ -40,5 +46,16 @@ set(SOURCES
   include/Console.h
 )
 
-add_executable(${PROJECT_NAME} WIN32 ${SOURCES})
-target_link_libraries(${PROJECT_NAME} Qt5::Widgets Qt5::Quick ${Boost_LIBRARIES} ${ZMQ_LIBRARIES})
+protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${PROTO_SOURCES})
+
+add_executable(${PROJECT_NAME} WIN32
+    ${SOURCES}
+    ${PROTO_SRCS} ${PROTO_HDRS} ${PROTO_SOURCES}
+)
+
+target_link_libraries(${PROJECT_NAME}
+    Qt5::Widgets Qt5::Quick
+    ${Boost_LIBRARIES}
+    ${ZMQ_LIBRARIES}
+    ${PROTOBUF_LIBRARY}
+)
