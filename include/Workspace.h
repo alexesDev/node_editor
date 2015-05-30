@@ -3,13 +3,10 @@
 
 #include <vector>
 #include <pimpl.h>
-#include <namespace.h>
 #include <QObject>
 #include <QQmlListProperty>
 
 class QUndoStack;
-
-NODE_EDITOR_BEGIN_NAMESPACE
 
 class Node;
 class Connection;
@@ -52,7 +49,5 @@ struct Workspace : public QObject
         void connectionsChanged();
         void consoleChanged();
 };
-
-NODE_EDITOR_END_NAMESPACE
 
 #endif

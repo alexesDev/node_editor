@@ -1,10 +1,7 @@
 #ifndef H_NODE_EDITOR_MOVE_COMMAND
 #define H_NODE_EDITOR_MOVE_COMMAND
 
-#include <namespace.h>
 #include <QUndoCommand>
-
-NODE_EDITOR_BEGIN_NAMESPACE
 
 class Node;
 
@@ -21,7 +18,5 @@ class MoveCommand : public QUndoCommand
         int mTop, mNewTop;
         Node *mNode;
 };
-
-NODE_EDITOR_END_NAMESPACE
 
 #endif

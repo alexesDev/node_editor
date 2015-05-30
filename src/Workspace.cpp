@@ -7,8 +7,6 @@
 #include <ConnectCommand.h>
 #include <QDebug>
 
-NODE_EDITOR_BEGIN_NAMESPACE
-
 Workspace::Workspace() : d(new Private)
 {
     d->edges.push_back(std::make_pair(0, 2));
@@ -85,5 +83,3 @@ Console *Workspace::console() const
 {
     return &d->console;
 }
-
-NODE_EDITOR_END_NAMESPACE

@@ -1,11 +1,8 @@
 #ifndef H_NODE_EDITOR_CONSOLE
 #define H_NODE_EDITOR_CONSOLE
 
-#include <namespace.h>
 #include <QObject>
 #include <QQmlListProperty>
-
-NODE_EDITOR_BEGIN_NAMESPACE
 
 class Console : public QObject
 {
@@ -24,7 +21,5 @@ class Console : public QObject
     private:
         QStringList mLines;
 };
-
-NODE_EDITOR_END_NAMESPACE
 
 #endif

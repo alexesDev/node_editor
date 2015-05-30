@@ -2,8 +2,6 @@
 #include <Pin.h>
 #include <Connection.h>
 
-NODE_EDITOR_BEGIN_NAMESPACE
-
 ConnectCommand::ConnectCommand(QList<Connection*> &connections, std::function<void()> changeCallback, Pin *from, Pin *to, QUndoCommand *parent) :
     QUndoCommand(parent),
     mConnections(connections),
@@ -28,5 +26,3 @@ void ConnectCommand::redo()
     mConnections.append(mConnection); // need set parent
     mChangeCallback();
 }
-
-NODE_EDITOR_END_NAMESPACE

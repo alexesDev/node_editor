@@ -1,10 +1,7 @@
 #ifndef H_NODE_EDITOR_CONNECTION
 #define H_NODE_EDITOR_CONNECTION
 
-#include <namespace.h>
 #include <QObject>
-
-NODE_EDITOR_BEGIN_NAMESPACE
 
 class Pin;
 
@@ -27,7 +24,5 @@ class Connection : public QObject
         void sourceChanged();
         void sinkChanged();
 };
-
-NODE_EDITOR_END_NAMESPACE
 
 #endif

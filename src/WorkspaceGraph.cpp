@@ -18,8 +18,6 @@ struct CircleDetector : boost::default_dfs_visitor
     { hasCircle = true; }
 };
 
-NODE_EDITOR_BEGIN_NAMESPACE
-
 bool Workspace::hasCircle() const
 {
     Graph g(d->edges.begin(), d->edges.end(), 4);
@@ -29,5 +27,3 @@ bool Workspace::hasCircle() const
     boost::depth_first_search(g, visitor(vis));
     return v;
 }
-
-NODE_EDITOR_END_NAMESPACE

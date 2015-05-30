@@ -1,11 +1,8 @@
 #ifndef H_NODE_EDITOR_NODE
 #define H_NODE_EDITOR_NODE
 
-#include <namespace.h>
 #include <QObject>
 #include <QQmlListProperty>
-
-NODE_EDITOR_BEGIN_NAMESPACE
 
 class Pin;
 
@@ -48,7 +45,5 @@ class Node : public QObject
         void inputPinsChanged();
         void outputPinsChanged();
 };
-
-NODE_EDITOR_END_NAMESPACE
 
 #endif

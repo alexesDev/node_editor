@@ -1,8 +1,6 @@
 #include <Node.h>
 #include <Pin.h>
 
-NODE_EDITOR_BEGIN_NAMESPACE
-
 Node::Node(QObject *parent) : QObject(parent)
 {
 }
@@ -72,5 +70,3 @@ QQmlListProperty<Pin> Node::qmlOutputPins()
 {
     return QQmlListProperty<Pin>(this, mOutputPins);
 }
-
-NODE_EDITOR_END_NAMESPACE

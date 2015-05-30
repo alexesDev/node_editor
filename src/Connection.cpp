@@ -2,8 +2,6 @@
 #include <Pin.h>
 #include <Node.h>
 
-NODE_EDITOR_BEGIN_NAMESPACE
-
 Connection::Connection(Pin *source, Pin *sink, QObject *parent) :
     QObject(parent),
     mSource(source),
@@ -28,5 +26,3 @@ Pin *Connection::sink() const
 {
     return mSink;
 }
-
-NODE_EDITOR_BEGIN_NAMESPACE
