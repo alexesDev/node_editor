@@ -14,8 +14,10 @@ find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Quick REQUIRED)
 find_package(Boost REQUIRED)
 find_package(ZMQ REQUIRED)
+find_package(ZMQ_PP REQUIRED)
 find_package(Protobuf REQUIRED)
 
+include_directories(${ZMQ_PP_INCLUDE_DIRS})
 include_directories(${PROTOBUF_INCLUDE_DIRS})
 include_directories(${Boost_INCLUDE_DIRS})
 include_directories(${ZMQ_INCLUDE_DIRS})
@@ -57,5 +59,6 @@ target_link_libraries(${PROJECT_NAME}
     Qt5::Widgets Qt5::Quick
     ${Boost_LIBRARIES}
     ${ZMQ_LIBRARIES}
+    ${ZMQ_PP_LIBRARIES}
     ${PROTOBUF_LIBRARY}
 )

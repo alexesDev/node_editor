@@ -1,0 +1,3 @@
+[submodule "thirtparty/zmqpp"]
+	path = thirtparty/zmqpp
+	url = git@github.com:zeromq/zmqpp.git
